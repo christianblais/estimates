@@ -6,126 +6,75 @@
 
     <title>How Long Will It Take?</title>
 
-    <style>
-      html, body { padding: 0; margin: 0; height: 100%; }
+    <link rel="stylesheet" href="./styles.css">
 
-      main {
-        height: 100%;
-        font-family: Arial, sans-serif;
+    <script type="module">
+      import { RollingWord } from './rolling-word.mjs';
 
-        section {
-          height: calc(100% / 3);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          p {
-            font-size: 2em;
-            text-shadow: 0 0 5px #e2e2e2;
-          }
-
-          &:nth-child(1) {
-            background-color: #AA7DCE;
-          }
-
-          &:nth-child(2) {
-            background-color: #F5D7E3;
-          }
-
-          &:nth-child(3) {
-            background-color: #F4A5AE;
-          }
-        }
-      }
-    </style>
+      window.customElements.define('rolling-word', RollingWord);
+    </script>
   </head>
   <body>
     <main>
-        <section>
-          <template>
-            <ul>
-              <li>ABOUT</li>
-              <li>APPROXIMATELY</li>
-              <li>MORE OR LESS</li>
-              <li>ROUGHLY</li>
-              <li>AROUND</li>
-              <li>CLOSE TO</li>
-              <li>ESSENTIALLY</li>
-              <li>ALMOST</li>
-              <li>IN THE REGION OF</li>
-              <li>ON THE ORDER OF</li>
-              <li>IN THE VICINITY OF</li>
-            </ul>
-          </template>
+        <section style="background: #AA7DCE;">
+          <datalist id="adverbs">
+            <option>ABOUT</option>
+            <option>APPROXIMATELY</option>
+            <option>MORE OR LESS</option>
+            <option>ROUGHLY</option>
+            <option>AROUND</option>
+            <option>CLOSE TO</option>
+            <option>ESSENTIALLY</option>
+            <option>ALMOST</option>
+            <option>IN THE REGION OF</option>
+            <option>ON THE ORDER OF</option>
+            <option>IN THE VICINITY OF</option>
+          </datalist>
 
-          <p></p>
+          <rolling-word list="adverbs" />
         </section>
-        <section>
-          <template>
-            <ul>
-              <li>TWO</li>
-              <li>TWO AND A HALF</li>
-              <li>THREE</li>
-              <li>THREE AND A HALF</li>
-              <li>FOUR</li>
-              <li>FOUR AND A HALF</li>
-              <li>FIVE</li>
-              <li>FIVE AND A HALF</li>
-              <li>SIX</li>
-              <li>FIX AND A HALF</li>
-              <li>SEVEN</li>
-              <li>HEIGHT</li>
-              <li>NINE</li>
-              <li>TEN</li>
-              <li>ELEVEN</li>
-              <li>TWELVE</li>
-              <li>A SHIT TON OF</li>
-              <li>TOO MANY</li>
-              <li>SEVERAL</li>
-              <li>A COUPLE</li>
-            </ul>
-          </template>
+        <section style="background-color: #F5D7E3;">
+          <datalist id="quantities">
+            <option>TWO</option>
+            <option>TWO AND A HALF</option>
+            <option>THREE</option>
+            <option>THREE AND A HALF</option>
+            <option>FOUR</option>
+            <option>FOUR AND A HALF</option>
+            <option>FIVE</option>
+            <option>FIVE AND A HALF</option>
+            <option>SIX</option>
+            <option>FIX AND A HALF</option>
+            <option>SEVEN</option>
+            <option>HEIGHT</option>
+            <option>NINE</option>
+            <option>TEN</option>
+            <option>ELEVEN</option>
+            <option>TWELVE</option>
+            <option>A SHIT TON OF</option>
+            <option>TOO MANY</option>
+            <option>SEVERAL</option>
+            <option>A COUPLE</option>
+          </datalist>
 
-          <p></p>
+          <rolling-word list="quantities" />
         </section>
-        <section>
-          <template>
-            <ul>
-              <li>HOURS</li>
-              <li>AFTERNOONS</li>
-              <li>DAYS</li>
-              <li>WEEKS</li>
-              <li>MONTHS</li>
-              <li>YEARS</li>
-              <li>SEMESTERS</li>
-              <li>QUARTERS</li>
-              <li>SPRINTS</li>
-              <li>MEETINGS</li>
-            </ul>
-          </template>
+        <section style="background-color: #F4A5AE;">
+          <datalist id="units">
+            <option>HOURS</option>
+            <option>AFTERNOONS</option>
+            <option>DAYS</option>
+            <option>WEEKS</option>
+            <option>MONTHS</option>
+            <option>YEARS</option>
+            <option>SEMESTERS</option>
+            <option>QUARTERS</option>
+            <option>SPRINTS</option>
+            <option>MEETINGS</option>
+          </datalist>
 
-          <p></p>
+          <rolling-word list="units" />
         </section>
     </main>
-
-    <script>
-      /**
-       * @returns A element picked at random
-       */
-      Array.prototype.pick = function() {
-        return this[Math.floor(Math.random() * this.length)];
-      }
-
-      function roll() {
-        for (const section of document.querySelectorAll('section')) {
-          const items = section.querySelector('template').content.querySelectorAll('ul li');
-          const value = Array.from(items).pick();
-
-          section.querySelector('p').innerText = value.innerText;
-        }
-      }
-
-      document.addEventListener('DOMContentLoaded', roll);
-    </script>
   </body>
 </html>
