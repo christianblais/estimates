@@ -27,7 +27,7 @@ export class RollingWord extends HTMLElement {
 
   roll() {
     const timeout = setInterval(() => {
-      this.innerText = [...Array(10).keys()].map(() => this.LETTERS.pick()).join('')
+      this.innerText = [...Array(10).keys()].map(() => this.LETTERS.pick()).join('');
     }, 100);
 
     setTimeout(() => {
