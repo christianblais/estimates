@@ -12,6 +12,12 @@
       import { RollingWord } from './rolling-word.mjs';
 
       window.customElements.define('rolling-word', RollingWord);
+
+      window.addEventListener('click', () => {
+        for (const rollingWord of document.querySelectorAll('rolling-word')) {
+          rollingWord.roll();
+        }
+      });
     </script>
   </head>
   <body>
