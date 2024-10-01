@@ -1,18 +1,33 @@
 html, body {
-  padding: 0;
-  margin: 0;
-  height: 100%;
   font-family: monospace, Arial, Helvetica, sans-serif;
+  color: #020202;
+  text-align: center;
+  padding-top: 2em;
+  background-color: #e2e2e2;
 }
 
-section {
-  height: calc(100% / 3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+h1 {
+  font-size: 4em;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.5em;
+  }
+}
+
+blockquote {
+  position: relative;
+  font-family: cursive;
+  text-wrap: balance;
   font-size: 2em;
-  text-shadow: 0 0 5px #e2e2e2;
-  text-align: center;
-  padding: 1em;
-  box-sizing: border-box;
+  opacity: 0.7;
+}
+
+blockquote:before {
+  content: "\201C";
+}
+
+blockquote:after {
+  content: "\201D";
 }
